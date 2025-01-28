@@ -1,13 +1,4 @@
 <div>{{title}}</div>
-<app-create-account></app-create-account>
-<app-admin-account></app-admin-account>
-<app-close-account></app-close-account>
-<app-view-account></app-view-account>
-<app-admin-rule></app-admin-rule>
-<app-define-rule></app-define-rule>
-<app-apply-loan></app-apply-loan>
-<app-pay-loan></app-pay-loan>
-<app-view-loan></app-view-loan>
-<app-loan-admin></app-loan-admin>
-<app-admin-rupee></app-admin-rupee>
-<app-rupee-request></app-rupee-request>
+<a type="button" [routerLink]="['create-account']" class="btn btn-primary">Create Account</a>
+<button type="button" class="btn btn-primary" (click)="gotoRupeeAdmin()" >Rupee Admin</button>
+<router-outlet></router-outlet>
