@@ -1,1 +1,9 @@
-<p>view-account works!</p>
+<h1>View Account</h1>
+
+<!-- {{accountData}} -->
+
+<p *ngFor="let record of accountData">
+
+    {{record | json}}
+
+</p>
