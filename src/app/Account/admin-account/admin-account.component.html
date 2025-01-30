@@ -1,1 +1,39 @@
 <h1>Admin Account</h1>
+
+<button type="button" class="btn btn-primary" (click)="showOn = !showOn">show senstive data</button>
+{{showOn}}
+<div class="container mt-4">
+    <table class="table table-bordered table-striped table-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Bank Name</th>
+                <th>Head office</th>
+                <th>No. of branches</th>
+                <th *ngIf="showOn">Total Balance</th>
+                <th>Expected growth rate</th>
+                <th>No. of Customers</th>
+                <th>Email</th>
+                <th *ngIf="showOn">Mobile</th>
+                <th>Action</th>
+            
+            </tr> 
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let record of account">
+                <td>{{record.id}}</td>
+                <td>{{record.BankName}}</td>
+                <td>{{record.HeadOffice}}</td>
+                <td>{{record.NoofBranches}}</td>
+                <td *ngIf="showOn">{{record.TotalBalance}}</td>
+                <td>{{record.ExpectedGrowth}}</td>
+                <td>{{record.NoofCustomers}}</td>
+                <td>{{record.Email}}</td>
+                <td *ngIf="showOn">{{record.Moblie}}</td>
+                <td>Action</td>
+   
+            </tr>
+        </tbody>
+    </table>
+</div>

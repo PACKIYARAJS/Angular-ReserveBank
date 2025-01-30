@@ -10,7 +10,7 @@ export class ApiService {
 
   getData(){
 
-    return this.http.get('https://retoolapi.dev/rIW3fl/data');
+    return this.http.get('https://retoolapi.dev/03g07B/data');
 
   }
 }

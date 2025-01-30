@@ -38,4 +38,11 @@ export class AppComponent {
     this.router.navigate(['/admin-rupee'])
 
   }
+
+  goToAdmin(){
+
+    this.router.navigate(['/admin-account']);
+
+  }
+
 }
