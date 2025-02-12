@@ -23,7 +23,10 @@ export class AdminAccountComponent implements OnInit{
 
   getDataValue(){
 
-    this.api.getData().subscribe(
+
+    const apiUrl = 'https://retoolapi.dev/03g07B/data';
+
+    this.api.getData(apiUrl).subscribe(
       (res:any)=>{
         this.account = res; 
       },

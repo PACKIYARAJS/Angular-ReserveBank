@@ -21,7 +21,9 @@ export class ViewAccountComponent implements OnInit{
 
   gatDataValue(){
 
-    this.api.getData().subscribe(
+    let apiUrl = "https://retoolapi.dev/03g07B/data";
+
+    this.api.getData(apiUrl).subscribe(
 
       (responseData:any)=>{
 

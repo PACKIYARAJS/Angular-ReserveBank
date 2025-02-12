@@ -11,6 +11,8 @@ import { PayLoanComponent } from './Loan/pay-loan/pay-loan.component';
 import { ViewLoanComponent } from './Loan/view-loan/view-loan.component';
 import { AdminRupeeComponent } from './Rupee/admin-rupee/admin-rupee.component';
 import { RupeeRequestComponent } from './Rupee/rupee-request/rupee-request.component';
+import { HomeComponent } from './Home/home/home.component';
+import { ForeclosureComponent } from './Loan/foreclosure/foreclosure.component';
 
 export const routes: Routes = [
 {path:'create-account', component: CreateAccountComponent},
@@ -25,5 +27,7 @@ export const routes: Routes = [
 {path:'view-loan', component: ViewLoanComponent},
 {path:'admin-rupee', component: AdminRupeeComponent},
 {path:'rupee-request', component: RupeeRequestComponent},
+{path:'home', component : HomeComponent},
+{path: 'foreclosure', component: ForeclosureComponent}
 
 ];

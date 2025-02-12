@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './create-account.component.scss'
 })
 export class CreateAccountComponent {
-        AccountName = 'HDFC';
+        AccountName : String = 'HDFC';
         bankName ='';
         headOffice='';
         NoOfBranches=0;
