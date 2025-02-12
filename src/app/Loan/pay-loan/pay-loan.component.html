@@ -1,1 +1,11 @@
-<p>pay-loan works!</p>
+<ng-container>
+    <h2>Pay Loan</h2>
+
+    Loan Amount : <input type="text" class="form-control" [(ngModel)]="loanAmt"/><br/>
+
+    Fore Amount : {{foreAmt}}
+</ng-container>
+
+<hr/>
+
+<app-foreclosure [loanAmt] ="loanAmt" (send)="getData($event)"></app-foreclosure>

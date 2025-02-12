@@ -1,1 +1,36 @@
-<p>view-loan works!</p>
+<div class="container mt-5">
+    <h2>Loans</h2>
+    <div *ngFor="let loan of loans">
+        <div *ngIf="loan.amt>20000">
+            {{loan.loanID}} - {{loan.amt}}
+        </div> 
+    </div>
+    <hr/>
+
+    <ng-container *ngFor="let loan of loans">
+        <ng-container *ngIf="loan.amt>20000">
+            {{loan.loanID}} --- {{loan.amt}}  
+        </ng-container>
+    </ng-container>
+    <hr/>
+
+    <div *ngTemplateOutlet="sampleTemp">
+
+    </div>
+
+    <ng-template #sampleTemp>
+        By default it will not be loaded
+    </ng-template>
+
+    <div *ngIf="true" #sampleTemp>
+        Loaded inside if ->
+    </div>
+
+    <div *ngTemplateOutlet="sampleTemp">
+
+    </div>
+
+    <div *ngTemplateOutlet="sampleTemp">
+
+    </div>
+</div>

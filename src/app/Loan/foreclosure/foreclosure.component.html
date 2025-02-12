@@ -1,0 +1,14 @@
+<ng-container>
+    <h2>ForeClosure</h2>
+
+    Outstanding loan amount : {{loanAmt}}
+
+    <div class="row mt-4">
+        <div class="col">ForeClosure Amount</div>
+        <div class="col">
+            <input type="text" class="form-control" [(ngModel)]="foreAmt"/>
+            <button type="button" class="btn btn-primary" (click)="send()">send</button>
+        </div>
+    </div>
+
+</ng-container>
