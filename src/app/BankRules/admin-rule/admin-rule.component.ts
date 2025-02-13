@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { APIURLS } from '../../Constants/globalContants';
 import { ApiService } from '../../Services/api.service';
 
 @Component({
@@ -12,8 +13,6 @@ import { ApiService } from '../../Services/api.service';
 })
 export class AdminRuleComponent implements OnInit{
 
-  apiUrl = "https://retoolapi.dev/03g07B/data";
-
   rulesDetails :any;
   ruleStatuses = ['Approved', 'Rejected', 'Initiated'];
   constructor(private apiService: ApiService){}
@@ -23,7 +22,7 @@ export class AdminRuleComponent implements OnInit{
   }
 
   getRulesDetails(){
-    this.apiService.getData(this.apiUrl).subscribe(
+    this.apiService.getData(APIURLS.ruleApiUrl).subscribe(
       (responseData) => {
         this.rulesDetails = responseData;
         console.log(this.rulesDetails);
@@ -40,11 +39,21 @@ export class AdminRuleComponent implements OnInit{
       requestBody.status = "Rejected";
 
       requestBody.approvedBy = 'Raj';
-    this.apiService.updateData(this.apiUrl, requestBody, record.id).subscribe(
+    this.apiService.updateData(APIURLS.ruleApiUrl, requestBody, record.id).subscribe(
       () => { 
         alert("Rule is successfully updated..");
       },
       err => { console.log(err)}
+    );
+  }
+
+  deleteRule(record:any){
+    this.apiService.deleteData(APIURLS.ruleApiUrl,record.id).subscribe(
+      () => {
+        alert("Deleted Successfully...");
+        this.getRulesDetails();
+      },
+      err => { console.log(err); }
     );
   }
 

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { APIURLS } from '../../Constants/globalContants';
 import { ApiService } from '../../Services/api.service';
 
 @Component({
@@ -23,10 +24,7 @@ export class AdminAccountComponent implements OnInit{
 
   getDataValue(){
 
-
-    const apiUrl = 'https://retoolapi.dev/03g07B/data';
-
-    this.api.getData(apiUrl).subscribe(
+    this.api.getData(APIURLS.RegApiUrl).subscribe(
       (res:any)=>{
         this.account = res; 
       },
@@ -35,6 +33,13 @@ export class AdminAccountComponent implements OnInit{
     )
   }
 
+  updateAccount(){
+
+    let RequestBody={
+      
+    }
+
+  }
  
 
 }

@@ -12,7 +12,7 @@ import { ForeclosureComponent } from '../foreclosure/foreclosure.component';
 })
 export class PayLoanComponent {
 
-  loanAmt : string='';
+  loanAmt : string="";
 
   foreAmt : any ='12345';
 

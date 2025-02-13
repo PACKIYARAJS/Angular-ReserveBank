@@ -1,11 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-foreclosure',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [ FormsModule],
   templateUrl: './foreclosure.component.html',
   styleUrl: './foreclosure.component.scss'
 })
@@ -15,7 +14,7 @@ export class ForeclosureComponent implements OnInit {
 
   foreAmt : string="";
 
-  @Output() sendData : EventEmitter<any> = new EventEmitter();
+  @Output() sendData  = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.foreAmt='';

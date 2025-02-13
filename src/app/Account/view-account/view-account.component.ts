@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { APIURLS } from '../../Constants/globalContants';
 import { ApiService } from '../../Services/api.service';
 
 @Component({
@@ -21,9 +22,7 @@ export class ViewAccountComponent implements OnInit{
 
   gatDataValue(){
 
-    let apiUrl = "https://retoolapi.dev/03g07B/data";
-
-    this.api.getData(apiUrl).subscribe(
+    this.api.getData(APIURLS.RegApiUrl).subscribe(
 
       (responseData:any)=>{
 

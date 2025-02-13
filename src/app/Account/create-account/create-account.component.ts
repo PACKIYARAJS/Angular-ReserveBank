@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { getEnvironmentData } from 'worker_threads';
+import { APIURLS } from '../../Constants/globalContants';
+import { ApiService } from '../../Services/api.service';
 
 @Component({
   selector: 'app-create-account',
@@ -8,14 +11,23 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './create-account.component.html',
   styleUrl: './create-account.component.scss'
 })
-export class CreateAccountComponent {
-        AccountName : String = 'HDFC';
-        bankName ='';
-        headOffice='';
-        NoOfBranches=0;
-        TotalBalance=0;
-        ExpectedGrowthRate=0;
-        NoOfCustomers = 0;
+export class CreateAccountComponent implements OnInit{
+        AccountName : string = 'HDFC';
+        bankName :string ='';
+        headOffice : string='';
+        NoOfBranches : number=0;
+        TotalBalance : number=0;
+        ExpectedGrowthRate : number=0;
+        NoOfCustomers : number= 0;
+        Email:string='';
+        Mobile:number =0;
+
+
+  constructor(private api:ApiService){}
+
+  ngOnInit(): void {
+    this.getData();
+  }
 
   RegisterBank(){
 
@@ -26,7 +38,24 @@ export class CreateAccountComponent {
       TotalBalance : this.TotalBalance,
       ExpectedGrowthRate : this.ExpectedGrowthRate,
       NoOfCustomers : this.NoOfCustomers,
+      Email : this.Email,
+      Mobile : this.Mobile
     }
-    console.log(RequestBody);
+    
+    this.api.createData(APIURLS.RegApiUrl, RequestBody).subscribe(
+      (response:any)=>{
+        alert("Created account sucessfully");
+      },
+      err=>{console.log(err)}
+    );
+  }
+
+  getData(){
+    this.api.getData(APIURLS.RegApiUrl).subscribe(
+      (response:any)=>{
+        console.log(response);
+      },
+      err=>{console.log(err)}
+    );
   }
 }

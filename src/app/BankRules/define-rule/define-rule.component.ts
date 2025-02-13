@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { APIURLS } from '../../Constants/globalContants';
 import { ApiService } from '../../Services/api.service';
 
 
@@ -17,7 +18,6 @@ export class DefineRuleComponent {
   ruleDesc :string = '';
   ruleProposer : string = '';
   ruleRegion : string = '';
-  apiUrl : string = "https://retoolapi.dev/03g07B/data";
 
   constructor(private apiService:ApiService){}
 
@@ -30,7 +30,7 @@ export class DefineRuleComponent {
       status : "Initiated",
       approvedBy :""
     }
-    this.apiService.createData(this.apiUrl, requestBody).subscribe(
+    this.apiService.createData(APIURLS.ruleApiUrl, requestBody).subscribe(
       ()=> {
         alert("Rule submitted Successfully...");
       },
